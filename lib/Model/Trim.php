@@ -64,7 +64,8 @@ class Trim implements ModelInterface, ArrayAccess
         'generation' => 'string',
         'production_start_year' => 'int',
         'production_end_year' => 'int',
-        'markets' => '\WsApiClient\Model\Market[]'
+        'markets' => '\WsApiClient\Model\Market[]',
+        'options' => 'object'
     ];
 
     /**
@@ -80,7 +81,8 @@ class Trim implements ModelInterface, ArrayAccess
         'generation' => null,
         'production_start_year' => null,
         'production_end_year' => null,
-        'markets' => null
+        'markets' => null,
+        'options' => null
     ];
 
     /**
@@ -117,7 +119,8 @@ class Trim implements ModelInterface, ArrayAccess
         'generation' => 'generation',
         'production_start_year' => 'production_start_year',
         'production_end_year' => 'production_end_year',
-        'markets' => 'markets'
+        'markets' => 'markets',
+        'options' => 'options'
     ];
 
     /**
@@ -133,7 +136,8 @@ class Trim implements ModelInterface, ArrayAccess
         'generation' => 'setGeneration',
         'production_start_year' => 'setProductionStartYear',
         'production_end_year' => 'setProductionEndYear',
-        'markets' => 'setMarkets'
+        'markets' => 'setMarkets',
+        'options' => 'setOptions'
     ];
 
     /**
@@ -149,7 +153,8 @@ class Trim implements ModelInterface, ArrayAccess
         'generation' => 'getGeneration',
         'production_start_year' => 'getProductionStartYear',
         'production_end_year' => 'getProductionEndYear',
-        'markets' => 'getMarkets'
+        'markets' => 'getMarkets',
+        'options' => 'getOptions'
     ];
 
     /**
@@ -220,6 +225,7 @@ class Trim implements ModelInterface, ArrayAccess
         $this->container['production_start_year'] = isset($data['production_start_year']) ? $data['production_start_year'] : null;
         $this->container['production_end_year'] = isset($data['production_end_year']) ? $data['production_end_year'] : null;
         $this->container['markets'] = isset($data['markets']) ? $data['markets'] : null;
+        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
     }
 
     /**
@@ -435,6 +441,20 @@ class Trim implements ModelInterface, ArrayAccess
     public function setMarkets($markets)
     {
         $this->container['markets'] = $markets;
+
+        return $this;
+    }
+
+     /**
+     * Sets markets
+     *
+     * @param \WsApiClient\Model\Market[] $markets List of markets where this trim if present
+     *
+     * @return $this
+     */
+    public function setOptions($options)
+    {
+        $this->container['options'] = $options;
 
         return $this;
     }
