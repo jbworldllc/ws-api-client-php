@@ -66,7 +66,7 @@ class Trim implements ModelInterface, ArrayAccess
         'production_end_year' => 'int',
         'markets' => '\WsApiClient\Model\Market[]',
         'options' => 'object',
-        'engine' => 'object'
+        'engine_type' => 'object'
     ];
 
     /**
@@ -84,7 +84,7 @@ class Trim implements ModelInterface, ArrayAccess
         'production_end_year' => null,
         'markets' => null,
         'options' => null,
-        'engine' => null
+        'engine_type' => null
     ];
 
     /**
@@ -123,7 +123,7 @@ class Trim implements ModelInterface, ArrayAccess
         'production_end_year' => 'production_end_year',
         'markets' => 'markets',
         'options' => 'options',
-        'engine' => 'engine'
+        'engine_type' => 'engine_type'
     ];
 
     /**
@@ -141,7 +141,7 @@ class Trim implements ModelInterface, ArrayAccess
         'production_end_year' => 'setProductionEndYear',
         'markets' => 'setMarkets',
         'options' => 'setOptions',
-        'engine' => 'setEngine'
+        'engine_type' => 'setEngineType'
     ];
 
     /**
@@ -159,7 +159,7 @@ class Trim implements ModelInterface, ArrayAccess
         'production_end_year' => 'getProductionEndYear',
         'markets' => 'getMarkets',
         'options' => 'getOptions',
-        'engine' => 'getEngine'
+        'engine_type' => 'getEngineType'
     ];
 
     /**
@@ -231,7 +231,7 @@ class Trim implements ModelInterface, ArrayAccess
         $this->container['production_end_year'] = isset($data['production_end_year']) ? $data['production_end_year'] : null;
         $this->container['markets'] = isset($data['markets']) ? $data['markets'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
-        $this->container['engine'] = isset($data['engine']) ? $data['engine'] : null;
+        $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
     }
 
     /**
@@ -466,18 +466,29 @@ class Trim implements ModelInterface, ArrayAccess
     }
 
      /**
-     * Sets markets
+     * Gets engine_type
      *
-     * @param \WsApiClient\Model\Market[] $markets List of markets where this trim if present
+     * @return string
+     */
+    public function getEngineType()
+    {
+        return $this->container['engine_type'];
+    }
+
+    /**
+     * Sets engine_type
+     *
+     * @param string $engine_type Engine type (e.g. `V8`, can be __*`null`*__)
      *
      * @return $this
      */
-    public function setEngine($engine)
+    public function setEngineType($engine_type)
     {
-        $this->container['engine'] = $engine;
+        $this->container['engine_type'] = $engine_type;
 
         return $this;
     }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
