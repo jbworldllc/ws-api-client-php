@@ -622,7 +622,7 @@ class SearchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchByModelListRequest($make, $model, $year, $trim = null, $only_oem = null, $lang = null)
+    protected function searchByModelListRequest($make, $model, $year, $trim = null, $market = null, $only_oem = null, $lang = null)
     {
         // verify the required parameter 'make' is set
         if ($make === null || (is_array($make) && count($make) === 0)) {
@@ -673,6 +673,10 @@ class SearchApi
         // query params
         if ($lang !== null) {
             $queryParams['lang'] = ObjectSerializer::toQueryValue($lang);
+        }
+        // query params
+        if ($market !== null) {
+            $queryParams['market'] = ObjectSerializer::toQueryValue($market);
         }
 
 
