@@ -269,7 +269,7 @@ class ModelsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function modelsListRequest($make, $year = null, $lang = null)
+    protected function modelsListRequest($make, $year = null, $lang = null, $market = 'usdm')
     {
         // verify the required parameter 'make' is set
         if ($make === null || (is_array($make) && count($make) === 0)) {
@@ -297,7 +297,10 @@ class ModelsApi
         if ($lang !== null) {
             $queryParams['lang'] = ObjectSerializer::toQueryValue($lang);
         }
-
+        // query params
+        if ($market !== null) {
+            $queryParams['market'] = ObjectSerializer::toQueryValue($market);
+        }
 
         // body params
         $_tempBody = null;
