@@ -622,7 +622,7 @@ class SearchApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchByModelListRequest($make, $model, $year, $trim = null, $market = null, $only_oem = null, $lang = null)
+    protected function searchByModelListRequest($make, $model, $year, $trim = null, $only_oem = null, $lang = null, $market = 'usdm')
     {
         // verify the required parameter 'make' is set
         if ($make === null || (is_array($make) && count($make) === 0)) {
