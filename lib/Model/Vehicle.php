@@ -70,6 +70,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'string',
         'power' => '\WsApiClient\Model\Power',
         'engine_type' => 'string',
+        'options' => 'object',
         'fuel' => 'string',
         'wheels' => '\WsApiClient\Model\WheelPair[]'
     ];
@@ -93,6 +94,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => null,
         'power' => null,
         'engine_type' => null,
+        'options' => null,
         'fuel' => null,
         'wheels' => null
     ];
@@ -137,6 +139,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'bolt_pattern',
         'power' => 'power',
         'engine_type' => 'engine_type',
+        'options' => 'options',
         'fuel' => 'fuel',
         'wheels' => 'wheels'
     ];
@@ -160,6 +163,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'setBoltPattern',
         'power' => 'setPower',
         'engine_type' => 'setEngineType',
+        'options' => 'setOptions',
         'fuel' => 'setFuel',
         'wheels' => 'setWheels'
     ];
@@ -183,6 +187,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         'bolt_pattern' => 'getBoltPattern',
         'power' => 'getPower',
         'engine_type' => 'getEngineType',
+        'options' => 'getOptions',
         'fuel' => 'getFuel',
         'wheels' => 'getWheels'
     ];
@@ -275,6 +280,7 @@ class Vehicle implements ModelInterface, ArrayAccess
         $this->container['bolt_pattern'] = isset($data['bolt_pattern']) ? $data['bolt_pattern'] : null;
         $this->container['power'] = isset($data['power']) ? $data['power'] : null;
         $this->container['engine_type'] = isset($data['engine_type']) ? $data['engine_type'] : null;
+        $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['fuel'] = isset($data['fuel']) ? $data['fuel'] : null;
         $this->container['wheels'] = isset($data['wheels']) ? $data['wheels'] : null;
     }
@@ -384,6 +390,19 @@ class Vehicle implements ModelInterface, ArrayAccess
     public function setTrim($trim)
     {
         $this->container['trim'] = $trim;
+
+        return $this;
+    }
+
+
+    /**
+     * Sets options
+     *
+     * @return $this
+     */
+    public function setOptions($options)
+    {
+        $this->container['options'] = $options;
 
         return $this;
     }
