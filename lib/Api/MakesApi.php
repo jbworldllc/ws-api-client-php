@@ -279,7 +279,7 @@ class MakesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function makesListRequest($lang = null, $brands = null, $brands_exclude = null, $countries = null, $countries_exclude = null)
+    protected function makesListRequest($lang = null, $brands = null, $brands_exclude = null, $countries = null, $countries_exclude = null, $market = 'usdm')
     {
 
         $resourcePath = '/makes/';
@@ -308,6 +308,11 @@ class MakesApi
         // query params
         if ($countries_exclude !== null) {
             $queryParams['countries_exclude'] = ObjectSerializer::toQueryValue($countries_exclude);
+        }
+
+        // query params
+        if ($market !== null) {
+            $queryParams['market'] = ObjectSerializer::toQueryValue($market);
         }
 
 
